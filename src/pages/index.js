@@ -18,7 +18,7 @@ class IndexPage extends React.Component {
     await new Promise(r => setTimeout(r, 1500));
     const { ids } = this.state;
     this.setState({
-      ids: [...ids, ...[...Array(20)].map(() => this.getId())]
+      ids: [...ids, ...[...Array(12)].map(() => this.getId())]
     });
   };
 
@@ -47,13 +47,11 @@ class IndexPage extends React.Component {
                 key={index}
                 image={{
                   src: `https://picsum.photos/id/${id}/480/270`,
-                  alt: "Golden Gate Bridge",
                   className: imgClassname,
                   onError: this.onImgLoadError.bind(this, index)
                 }}
                 zoomImage={{
-                  src: `https://picsum.photos/id/${id}/1600/900`,
-                  alt: "Golden Gate Bridge"
+                  src: `https://picsum.photos/id/${id}/1600/900`
                 }}
                 defaultStyles={{
                   overlay: {

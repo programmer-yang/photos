@@ -7,7 +7,7 @@ const LoadingRender = (
   <div
     style={{
       height: "200px",
-      backgroundColor: "rgba(204, 51, 102, .1)",
+      backgroundColor: "rgba(0, 0, 0, 0)",
       display: "flex",
       justifyContent: "center",
       alignItems: "center"
