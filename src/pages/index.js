@@ -2,6 +2,7 @@ import React from "react";
 import Scroll from "../components/listscroll";
 import ImageZoom from "react-medium-image-zoom";
 import cn from "classnames";
+
 import styles from "./index.less";
 
 const isWin = window.navigator.platform.indexOf("Win") >= 0;
@@ -41,17 +42,17 @@ class IndexPage extends React.Component {
     return (
       <div className={styles.root}>
         <Scroll onLoad={this.getData}>
-          <div className={styles.item} id="container">
+          <div className={styles.item}>
             {ids.map((id, index) => (
               <ImageZoom
                 key={index}
                 image={{
-                  src: `https://picsum.photos/id/${id}/480/270`,
+                  src: `https://picsum.photos/id/${id}/480/270.jpg`,
                   className: imgClassname,
                   onError: this.onImgLoadError.bind(this, index)
                 }}
                 zoomImage={{
-                  src: `https://picsum.photos/id/${id}/1600/900`
+                  src: `https://picsum.photos/id/${id}/1600/900.jpg`
                 }}
                 defaultStyles={{
                   overlay: {
