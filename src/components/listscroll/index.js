@@ -18,7 +18,14 @@ const LoadingRender = (
   </div>
 );
 const ListScrollPage = props => {
-  const { onLoad, loaderRender, children, initLoad, element } = props;
+  const {
+    onLoad,
+    loaderRender,
+    children,
+    initLoad,
+    element,
+    threshold
+  } = props;
   return (
     <InfiniteScroll
       element={element}
@@ -28,7 +35,7 @@ const ListScrollPage = props => {
       loader={loaderRender}
       useWindow={true}
       initialLoad={initLoad}
-      threshold={500}
+      threshold={threshold}
     >
       {children}
     </InfiniteScroll>
@@ -41,12 +48,14 @@ ListScrollPage.propTypes = {
   children: PropTypes.oneOfType([PropTypes.element, PropTypes.array])
     .isRequired,
   initLoad: PropTypes.bool,
-  element: PropTypes.node
+  element: PropTypes.node,
+  threshold: PropTypes.number
 };
 ListScrollPage.defaultProps = {
   loaderRender: LoadingRender,
   initLoad: false,
-  element: "div"
+  element: "div",
+  threshold: 250
 };
 
 export default ListScrollPage;

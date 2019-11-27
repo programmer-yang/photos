@@ -32,7 +32,7 @@ class IndexPage extends React.Component {
   getPhotoList = async (page = 0) => {
     const { photos, imgWidth } = this.state;
     const newPhotos = clone(photos);
-    await new Promise(r => setTimeout(r, 1000));
+    await new Promise(r => setTimeout(r, 400));
     const res = await getList(page + 1);
     res.forEach(item => {
       const index = newPhotos.findIndex(
@@ -56,7 +56,7 @@ class IndexPage extends React.Component {
 
     return (
       <div className={styles.root}>
-        <Scroll onLoad={this.getPhotoList}>
+        <Scroll onLoad={this.getPhotoList} threshold={800}>
           <div className={styles.container}>
             {photos.map(item => (
               <div key={item.id} className={styles.column}>
