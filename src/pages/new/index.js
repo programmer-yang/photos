@@ -7,7 +7,7 @@ import { getList } from "../request";
 import styles from "./index.less";
 
 const isWin = window.navigator.platform.indexOf("Win") >= 0;
-const column = 3;
+const column = 5;
 
 class IndexPage extends React.Component {
   constructor(props) {
@@ -21,7 +21,7 @@ class IndexPage extends React.Component {
     });
     this.state = {
       photos,
-      imgWidth: window.document.body.clientWidth / 3
+      imgWidth: window.document.body.clientWidth / column
     };
   }
 
