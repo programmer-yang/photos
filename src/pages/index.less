@@ -4,19 +4,22 @@ body {
 }
 
 .root {
-  .item {
+  .container {
     display: flex;
-    flex-wrap: wrap;
-    // column-count: 3;
-    .img {
-      width: 33.3333vw;
-      height: 33.3333vh;
-      background-size: cover;
-      background-position: center center;
-      background-repeat: no-repeat;
-    }
-    .imgWin {
-      width: 32.9124vw;
+    .column {
+      display: flex;
+      flex-direction: column;
+      .item {
+        .img {
+          width: 100%;
+          background-size: cover;
+          background-position: center center;
+          background-repeat: no-repeat;
+        }
+        .imgWin {
+          width: 100%;
+        }
+      }
     }
   }
 }
