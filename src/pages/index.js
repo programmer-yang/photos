@@ -46,7 +46,7 @@ class IndexPage extends React.Component {
   };
 
   getPhotoDetail = url => {
-    const api = "http://95.169.16.70:9002";
+    const api = "http://95.169.16.82:9002";
     return `${api}/api/photo?path=${encodeURIComponent(url)}`;
   };
 
