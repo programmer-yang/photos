@@ -4,7 +4,6 @@ import Axios from "axios";
 const api = Axios.create({
   baseURL: "http://95.169.16.82:9002/"
 });
-
 const getList = page => {
   return api.get(`/api/photos?page=${page}`).then(res => res.data);
 };
