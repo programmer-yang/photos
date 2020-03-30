@@ -34,6 +34,10 @@ class IndexPage extends React.Component {
     const newPhotos = clone(photos);
     await new Promise(r => setTimeout(r, 400));
     const res = await getList(page + 1);
+
+    console.log("====");
+    console.log(res);
+    console.log("====");
     res.forEach(item => {
       const index = newPhotos.findIndex(
         item => item.height === Math.min(...newPhotos.map(item => item.height))
@@ -45,9 +49,9 @@ class IndexPage extends React.Component {
     this.setState({ photos: newPhotos });
   };
 
-  getPhotoDetail = url => {
-    const api = "http://95.169.16.82:9002";
-    return `${api}/api/photo?path=${encodeURIComponent(url)}`;
+  getPhotoDetail = (code, type) => {
+    const api = "http://39.108.94.69:9004";
+    return `${api}/api/photos/${encodeURIComponent(code)}?type=${type}`;
   };
 
   render() {
@@ -73,12 +77,12 @@ class IndexPage extends React.Component {
                       <ImageZoom
                         key={item.id}
                         image={{
-                          src: this.getPhotoDetail(dataItem.urls.small),
+                          src: this.getPhotoDetail(dataItem.code, "small"),
                           className: imgClassname
                           // onError: this.onImgLoadError.bind(this, index)
                         }}
                         zoomImage={{
-                          src: this.getPhotoDetail(dataItem.urls.regular)
+                          src: this.getPhotoDetail(dataItem.code, "regular")
                         }}
                         defaultStyles={{
                           overlay: {
