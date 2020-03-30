@@ -32,12 +32,9 @@ class IndexPage extends React.Component {
   getPhotoList = async (page = 0) => {
     const { photos, imgWidth } = this.state;
     const newPhotos = clone(photos);
-    await new Promise(r => setTimeout(r, 400));
+    // await new Promise(r => setTimeout(r, 400));
     const res = await getList(page + 1);
 
-    console.log("====");
-    console.log(res);
-    console.log("====");
     res.forEach(item => {
       const index = newPhotos.findIndex(
         item => item.height === Math.min(...newPhotos.map(item => item.height))
