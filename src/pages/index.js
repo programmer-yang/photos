@@ -49,9 +49,11 @@ class IndexPage extends React.Component {
     this.setState({ photos: newPhotos });
   };
 
-  getPhotoDetail = (code, type) => {
+  getPhotoDetail = (code, type, isFlagged) => {
     const api = "http://39.108.94.69:9004";
-    return `${api}/api/photos/${encodeURIComponent(code)}?type=${type}`;
+    return `${api}/api/photos/${encodeURIComponent(code)}?type=${type}${
+      isFlagged ? "&flagged=1" : ""
+    }`;
   };
 
   render() {
@@ -77,12 +79,20 @@ class IndexPage extends React.Component {
                       <ImageZoom
                         key={item.id}
                         image={{
-                          src: this.getPhotoDetail(dataItem.code, "small"),
+                          src: this.getPhotoDetail(
+                            dataItem.code,
+                            "small",
+                            dataItem.isFlagged
+                          ),
                           className: imgClassname
                           // onError: this.onImgLoadError.bind(this, index)
                         }}
                         zoomImage={{
-                          src: this.getPhotoDetail(dataItem.code, "regular")
+                          src: this.getPhotoDetail(
+                            dataItem.code,
+                            "regular",
+                            dataItem.isFlagged
+                          )
                         }}
                         defaultStyles={{
                           overlay: {
